@@ -6,4 +6,8 @@
     <RootNamespace>Tickets_with_Classes</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="5.0.4" />
+  </ItemGroup>
+
 </Project>
