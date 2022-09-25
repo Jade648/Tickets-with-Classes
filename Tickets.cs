@@ -62,8 +62,7 @@ namespace Tickets_with_Classes
                {
                 break; 
                }
-
-               Tickets Ticket = new Ticket; 
+                   Tickets tickets = new Tickets;
 
                foreach(Ticket :: Tickets){
 
