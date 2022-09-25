@@ -63,6 +63,8 @@ namespace Tickets_with_Classes
                 break; 
                }
 
+               Tickets Ticket = new Ticket; 
+
                Console.WriteLine("Enter the name of who submitted the ticket");
 
                string name = Console.ReadLine().ToUpper();
@@ -88,4 +90,7 @@ namespace Tickets_with_Classes
         } while (choice == "1" |choice == "2"){
 
             logger.Info("Program ended");
+        }
+    } 
+
 
