@@ -10,7 +10,8 @@ namespace Ticket
     {
         private static NLog.Logger logger = NLogBuilder.ConfigureNLog(Directory.GetCurrentDirectory() + "\\nlog.config").GetCurrentClassLogger();
 
-        static void Main(string[] args){
+        static void Main(string[] args)
+        {
 
             logger.Info("Program started");
 
@@ -21,14 +22,15 @@ namespace Ticket
         do{
 
             Console.WriteLine("1)Read data from file");
-            Console.WriteLine("2)Create file from data");
+            Console.WriteLine("2)Create Ticket file from data");
             Console.WriteLine("3) Press any key to exit program");
 
             choice = Console.ReadLine();
 
             logger.Info("User choice:{choice}",choice);
 
-            if (choice == "1"){
+            try{
+                if (choice == "1"){
                 
                 if (File.Exists(file)){
                          
@@ -36,21 +38,26 @@ namespace Ticket
 
                          while (!sr.EndOfStream){
 
-                            string line = sr.ReadLine();
+                            string[] lines = File.ReadAllLines("source\\Tickets.csv");
+        for (int i = 0; i < lines.Length; i++)
+        {
+            string line = lines[i];
 
-                            string [] arr = line.Split('|');
+                            string [] arr = line.Split(',');
 
+                            if(fields.Length != 6)
+                             
+                            {
                             Console.WriteLine("choice: {1},choice {2}", arr [1],arr[2]);
                             } 
                              sr.Close();
-                            
-                            }else {
 
-           Console.WriteLine("File does not exist");
-        }  
-             if (choice == "2"){
+                         } catch(IOException e){
 
-        StreamWriter sw = new StreamWriter(file,append:true);
+                Console.WriteLine(e + "Index out of bounds");
+
+            } else if (choice == "2"){
+                        StreamWriter sw = new StreamWriter(file,append:true);
         for(int i =0; i < 7; i++) {
             
             {
@@ -67,18 +74,17 @@ namespace Ticket
 
                string name = Console.ReadLine().ToUpper();
 
+               sw.WriteLine (name);
+
 
               Console.WriteLine("Enter the ticket's description");
 
               string description = Console.ReadLine().ToUpper();
+              sw.WriteLine ( description);
                
                Console.WriteLine("Enter Ticket's Status");
 
                string status = Console.ReadLine().ToUpper();
-
-               sw.WriteLine (name);
-
-               sw.WriteLine ( description);
 
                sw.WriteLine(status);
 
@@ -93,7 +99,7 @@ namespace Ticket
 
   }
 }
-}
+
 
        
 
