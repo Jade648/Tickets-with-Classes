@@ -28,9 +28,8 @@ namespace Ticket
             choice = Console.ReadLine();
 
             logger.Info("User choice:{choice}",choice);
-
-            try{
-                if (choice == "1"){
+        {
+           if (choice == "1"){
                 
                 if (File.Exists(file)){
                          
@@ -38,29 +37,16 @@ namespace Ticket
 
                          while (!sr.EndOfStream){
 
-                            string[] lines = File.ReadAllLines("source\\Tickets.csv");
-        for (int i = 0; i < lines.Length; i++)
-        {
-            string line = lines[i];
+                            string[] arr = File.ReadAllLines("source\\Tickets.csv");
 
-                            string [] arr = line.Split(',');
-
-                            if(fields.Length != 6)
-                             
-                            {
                             Console.WriteLine("choice: {1},choice {2}", arr [1],arr[2]);
                             } 
                              sr.Close();
 
-                         } catch(IOException e){
+                            } else if (choice == "2"){
 
-                Console.WriteLine(e + "Index out of bounds");
-
-            } else if (choice == "2"){
                         StreamWriter sw = new StreamWriter(file,append:true);
-        for(int i =0; i < 7; i++) {
-            
-            {
+                 {
               Console.WriteLine("Enter a Ticket (Y/N)?");
 
               string resp = Console.ReadLine().ToUpper();
@@ -70,16 +56,16 @@ namespace Ticket
                 break; 
                }
                  
-                 Console.WriteLine("Enter the name of who submitted the ticket");
+               try { Console.WriteLine("Enter the name of who submitted the ticket");
 
                string name = Console.ReadLine().ToUpper();
 
                sw.WriteLine (name);
 
-
               Console.WriteLine("Enter the ticket's description");
 
               string description = Console.ReadLine().ToUpper();
+
               sw.WriteLine ( description);
                
                Console.WriteLine("Enter Ticket's Status");
@@ -88,17 +74,21 @@ namespace Ticket
 
                sw.WriteLine(status);
 
-            }
-               sw.Close(); 
-            }
+            } catch (IndexOutOfRangeException ex){
 
-              logger.Info("Program ended");
-        } 
-    }
-}while (choice == "1" |choice == "2");
+               Console.WriteLine("Index  was out of Range");
 
-  }
+              } logger.Info ("caught index out of range exception");   
+            } 
+            sw.Close(); 
+        }
+      }  
+    while(choice == "1"|choice == "2");
+  } 
 }
+    
+  
+
 
 
        
