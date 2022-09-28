@@ -45,7 +45,7 @@ namespace Ticket
 
                             } else if (choice == "2"){
 
-                        StreamWriter sw = new StreamWriter(file,append:true);
+                        try { StreamWriter sw = new StreamWriter(file,append:true);
                  {
               Console.WriteLine("Enter a Ticket (Y/N)?");
 
@@ -56,7 +56,7 @@ namespace Ticket
                 break; 
                }
                  
-               try { Console.WriteLine("Enter the name of who submitted the ticket");
+               Console.WriteLine("Enter the name of who submitted the ticket");
 
                string name = Console.ReadLine().ToUpper();
 
@@ -73,24 +73,25 @@ namespace Ticket
                string status = Console.ReadLine().ToUpper();
 
                sw.WriteLine(status);
+                 }
 
+                  sw.Close(); 
             } catch (IndexOutOfRangeException ex){
 
                Console.WriteLine("Index  was out of Range");
 
               } logger.Info ("caught index out of range exception");   
-            } 
-            sw.Close(); 
+            }  
+          } 
         }
-      }  
-    while(choice == "1"|choice == "2");
-  } 
+      } while(choice == "1"|choice == "2");
+    } 
+  }
 }
-    
   
 
 
 
        
-
+ 
     
