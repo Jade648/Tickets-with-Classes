@@ -18,7 +18,7 @@ namespace Ticket
 
              Tickets ticket1  = new Tickets ("//Tickets.csv");
 
-            string file = "\\Tickets.csv";
+            var file = "\\Tickets.csv";
 
             string choice = "";
 
@@ -49,7 +49,7 @@ namespace Ticket
 
                     }else if(choice == "2"){
 
-               StreamWriter sw = new StreamWriter(file,true);
+               StreamWriter sw = new StreamWriter(file,append:true);
 
               Console.WriteLine("Enter a Ticket (Y/N)?");
 
