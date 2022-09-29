@@ -3,11 +3,17 @@ namespace Ticket
 
         class Tickets{
 
-            string name;
+            public string name;
 
-            string description;
+            public string description;
 
-            string status;
+           public string status;
+        private string v;
+
+        public Tickets(string v)
+        {
+            this.v = v;
+        }
 
         public Tickets(string name, string description, string status)
         {

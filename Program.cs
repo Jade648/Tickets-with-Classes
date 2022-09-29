@@ -16,7 +16,7 @@ namespace Ticket
 
             logger.Info("Program started");
 
-             Tickets ticket1  = new Tickets("//Tickets.csv");
+             Tickets ticket1  = new Tickets ("//Tickets.csv");
 
             string file = "\\Tickets.csv";
 
@@ -55,7 +55,7 @@ namespace Ticket
 
                Console.ReadLine();{
 
-               foreach(char Tickets in "Tickets.cs");
+               foreach(char Tickets in "Tickets.csv");
 
                     {
                         Console.WriteLine("Tickets.csv");
