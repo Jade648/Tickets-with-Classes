@@ -18,7 +18,7 @@ namespace Ticket
 
              Tickets ticket1  = new Tickets ("//Tickets.csv");
 
-            var file = "\\Tickets.csv";
+            string file = "\\Tickets.csv";
 
             string choice = "";
 
