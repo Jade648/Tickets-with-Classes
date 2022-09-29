@@ -16,7 +16,7 @@ namespace Ticket
 
             logger.Info("Program started");
 
-             Tickets ticket  = new Tickets ("\\Tickets.csv");
+             Tickets ticket1  = new Tickets("//Tickets.csv");
 
             string file = "\\Tickets.csv";
 
@@ -45,26 +45,23 @@ namespace Ticket
                         string line = sr.ReadLine();
                     }
                     sr.Close();
-                
+                    }
 
-                } else if(choice == "2"){
+                    }else if(choice == "2"){
 
-               try {StreamWriter sw = new StreamWriter(file,true);
+               StreamWriter sw = new StreamWriter(file,true);
 
               Console.WriteLine("Enter a Ticket (Y/N)?");
 
                Console.ReadLine();{
 
-              break;
-               }
-               
-               foreach(Tickets :: Ticket = "//Tickets.csv");
+               foreach(char Tickets in "Tickets.cs");
 
                     {
-                        Console.WriteLine(ticket);
+                        Console.WriteLine("Tickets.csv");
                     }
 
-               Console.WriteLine("Enter the name of who submitted the ticket");
+              try {Console.WriteLine("Enter the name of who submitted the ticket");
 
                string name = Console.ReadLine().ToUpper();
 
@@ -80,26 +77,33 @@ namespace Ticket
 
                sw.WriteLine($"{name},{description},{status}");
 
-               } catch (IndexOutOfRangeException ex){
+                sw.Close();
+              }catch (IndexOutOfRangeException){
 
-               Console.WriteLine("Index  was out of Range");
-               
-              } logger.Info ("caught index out of range exception");    
+               Console.WriteLine("Index  was out of Range");        
+              
+             } 
+             
+              }
+            }
+          }
+        }while(choice == "1"||choice == "2");
 
-              } else {
-
-              Console.WriteLine("File can not be found");
-
-                          logger.Error("File does not exist: {File}", file);          
-            }        
-          } 
-        } 
-        } while(choice == "1"|| choice == "2"); 
-
-          logger.Info("program ended");
-      } 
+        logger.Info("Program ended");
+      }
     }
   }
+  
+      
+          
+
+               
+              
+  
+  
+
+   
+
 
   
 
